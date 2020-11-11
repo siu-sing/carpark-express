@@ -1,0 +1,75 @@
+<div class="row">
+	<div class="col">
+		<h2>Carpark Details</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<div><%= carpark.name %></div>
+		<div>Location: <%= carpark.location %></div>
+		<div>Max Capacity: <%= carpark.capacity %></div>
+		<div>Current Availability: <%= carpark.capacity - carpark.vehicles.length %></div>
+	</div>
+
+	<div class="col-md-6">
+
+		<% if (carpark.vehicles.length >= carpark.capacity) { %>
+		<div class="display-4">
+			CARPARK IS FULL
+		</div>
+		<% } else { %>
+		<form action="/carpark/<%= carpark._id %>" method="post">
+			<div class="form-group">
+				<select class="form-control" id="exampleFormControlSelect2" name="vehicle_type">
+					<option value="4W" selected>4W</option>
+					<option value="2W">2W</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<input name="license_no" type="text" class="form-control" placeholder="License Plate No.">
+			</div>
+			<div class="form-group">
+				<input name="make_model" type="text" class="form-control" placeholder="Make & Model">
+			</div>
+			<div class="form-group">
+				<input name="color" type="text" class="form-control" placeholder="Color">
+			</div>
+			<button class="btn btn-primary btn-block">Add Vehicle</button>
+		</form>
+		<% } %>
+	</div>
+</div>
+<div class="row">
+	<div class="col">
+		<h2>Vehicles</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col">Total Vehicles: <%= carpark.vehicles.length %> </div>
+</div>
+<div class="row">
+	<div class="col">
+		<table class="table">
+			<tr>
+				<th>Type</th>
+				<th>License Plate</th>
+				<th>Make & model </th>
+				<th>Color</th>
+				<th>Actions</th>
+			</tr>
+			<% carpark.vehicles.forEach(v=> { %>
+			<tr>
+				<td><%= v.vehicle_type %></td>
+				<td><%= v.license_no %></td>
+				<td><%= v.make_model %></td>
+				<td><%= v.color %></td>
+				<td>
+					<form action="/carpark/<%= carpark._id %>/vehicle/<%= v._id %>?_method=DELETE" method="POST">
+						<button type="submit" class="btn btn-danger btn-sm">Remove</button>
+					</form>
+				</td>
+			</tr>
+			<%})%>
+		</table>
+	</div>
+</div>

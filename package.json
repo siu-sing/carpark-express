@@ -1,0 +1,24 @@
+{
+  "name": "carpark-express",
+  "version": "1.0.0",
+  "description": "Wilson, a carpark mogul has approached you to develop a carpark management app to manage and track the live parking lot availability for each of his carparks. He also wants to be able to track the vehicle make and model, color, and license plate number of each vehicle in the carpark.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/sei-sg/carpark-express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.10.13"
+  }
+}

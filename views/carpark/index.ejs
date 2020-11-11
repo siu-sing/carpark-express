@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col text-center">
+        <h1>Carpark Management System</h1>
+    </div>
+</div>
+<div class="row">
+	<div class="col">
+		<a href="/carpark/new" class="btn btn-success">Add New Carpark</a>
+	</div>
+</div>
+<div class="row">
+	<% carparks.forEach(c=> { %>
+	<div class="col-md-4">
+
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title"><%= c.name %></h5>
+				<h6 class="card-subtitle mb-2"><%= c.location %></h6>
+				<p class="card-text">
+					Lot Availability: <%= c.capacity -c.vehicles.length %>
+				</p>
+				<p class="card-text">
+					Total Capacity: <%= c.capacity %>
+				</p>
+				<a href="/carpark/<%= c._id %>" class="btn btn-sm btn-primary">View Carpark</a>
+                <a href="/carpark/edit/<%= c._id %>" class="btn btn-sm btn-warning">Edit Carpark</a>
+                <form action="/carpark/<%= c._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger btn-sm">Delete Carpark</button>
+                </form>
+			</div>
+		</div>
+
+	</div>
+	<%})%>
+</div>
