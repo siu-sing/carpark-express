@@ -8,6 +8,8 @@ You are to use node, express, mongodb to develop the parking app, and ejs layout
 2. As a user, I want to be able to indicate that a vehicle has entered and parked in the carpark, record its make, model and license plate number (e.g. Toyota Altis, Champagne Gold, SMC3699J)
 3. As a user, I want to remove a car from a carpark.
 4. As a user, I want to be able to view the current avaibility of a carpark. e.g. `carpark full` OR `153/200 lots available`.
+5. As a user, I would like to be able to modify details of the carpark (i.e. update).
+6. Any other features you deem necessary.
 
 ## Hints
 
@@ -25,10 +27,10 @@ You are to use node, express, mongodb to develop the parking app, and ejs layout
     - Colour
 
 ### Routes (Suggested design)
-GET `/carparks`: Show all carparks in the system, with current availability for each carpark
-GET `/carparks/:id`: List all the current vehicles in carpark, includes a form to add a vehicle into the carpark
-GET/POST `/carparks/new`: Form to create a new carpark
-POST `/carparks/:id/add` Post route to add a car to the carpark
+- GET `/carparks`: Show all carparks in the system, with current availability for each carpark
+- GET `/carparks/:id`: List all the current vehicles in carpark, includes a form to add a vehicle into the carpark
+- GET/POST `/carparks/new`: Form to create a new carpark
+- POST `/carparks/:id/add` Post route to add a car to the carpark
 
 ### Suggested way to start
 - Create the basic CRUD functionality for carparks
